@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f5ee;
+  --ink: #2d4549;
+  --muted: #778077;
+  --line: #e2e3d6;
+  --green: #356452;
+  --serif: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: "Inter", "Avenir Next", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+button, input { font: inherit; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #936128; outline-offset: 6px; }
+.page-shell { width: min(1180px, calc(100% - 112px)); margin: 0 auto; }
+.masthead { min-height: 108px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 12px; }
+.brand-mark { width: 43px; height: 43px; }
+.brand-copy { display: flex; flex-direction: column; gap: 6px; }
+.brand-copy strong { font-size: 14px; font-weight: 600; letter-spacing: 2px; }
+.brand-copy > span { color: var(--muted); font-size: 8px; letter-spacing: 1.9px; }
+.masthead-note { display: flex; align-items: center; gap: 11px; color: #687466; font-size: 12px; letter-spacing: 1px; }
+.little-star { width: 19px; height: 19px; color: #b78c4e; }
+.introduction { display: flex; justify-content: space-between; align-items: flex-end; padding: 35px 2px 30px; gap: 28px; }
+.eyebrow { display: flex; align-items: center; gap: 9px; color: #78836e; font-size: 9px; font-weight: 500; letter-spacing: 2.4px; margin: 0 0 14px; }
+.eyebrow > span { width: 17px; height: 1px; background: #8c9b75; }
+h1 { margin: 0; font-family: var(--serif); font-size: clamp(37px, 4.4vw, 64px); font-weight: 600; letter-spacing: 1px; line-height: 1.25; }
+h1 br { display: none; }
+.intro-aside { padding: 0 2px 1px; display: flex; align-items: center; gap: 20px; }
+.intro-aside p { margin: 0; color: #7b8177; font-size: 12px; line-height: 1.95; letter-spacing: .65px; }
+.wind-drawing { width: 48px; height: 31px; fill: none; stroke: #a2ad94; stroke-width: 1.5; stroke-linecap: round; }
+.ride-card { overflow: hidden; border: 1px solid #e2e2d2; border-radius: 18px; background: #fcfbf6; box-shadow: 0 6px 20px -14px #66614730; }
+.scene-wrap { position: relative; overflow: hidden; isolation: isolate; background: #fbf4df; }
+#scene { display: block; width: 100%; height: auto; }
+.scene-caption { position: absolute; display: flex; align-items: center; gap: 12px; top: 30px; left: 32px; z-index: 1; }
+.route-number { display: flex; width: 32px; height: 38px; justify-content: center; align-items: center; border: 1px solid #d4d0b9; border-radius: 16px 16px 3px 3px; font-family: Georgia, serif; font-size: 17px; color: #687366; }
+.scene-caption > div { display: flex; flex-direction: column; gap: 5px; }
+.scene-caption strong { font-size: 11px; font-weight: 500; letter-spacing: 2px; color: #677061; }
+.scene-caption div > span { font-size: 7px; letter-spacing: 1.5px; color: #8b907b; }
+.weather-tag { position: absolute; top: 34px; right: 30px; z-index: 1; display: flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: .5px; color: #8b8a6e; }
+.weather-tag svg { width: 18px; height: 18px; fill: none; stroke: #a3976d; stroke-width: 1.3; stroke-linecap: round; }
+.scene-footnote { position: absolute; bottom: 19px; left: 30px; display: flex; align-items: center; gap: 9px; color: #706e59; font-size: 9px; letter-spacing: 1.5px; }
+.scene-footnote > span { width: 5px; height: 5px; border-radius: 50%; background: #7e896b; }
+.scene-edition { position: absolute; bottom: 20px; right: 30px; color: #8b8168; font-size: 7px; letter-spacing: 1.8px; }
+.ride-controls { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 24px 32px; min-height: 104px; border-top: 1px solid #eee7d3; }
+.playback-group { display: flex; align-items: center; gap: 15px; flex: 1; }
+.play-button { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: var(--green); color: #fffae8; cursor: pointer; flex-shrink: 0; transition: background .15s, transform .15s; }
+.play-button:hover { background: #274e3f; transform: translateY(-1px); }
+.play-button:active { transform: scale(.96); }
+.play-button svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.play-icon { display: none; }
+.play-button.is-paused .pause-icon { display: none; }
+.play-button.is-paused .play-icon { display: block; fill: currentColor; stroke-width: 1; }
+.playback-copy { display: flex; flex-direction: column; gap: 7px; white-space: nowrap; }
+.playback-copy strong { font-size: 12px; font-weight: 500; letter-spacing: 1px; }
+.playback-copy > span { color: #636f5d; font-size: 9px; letter-spacing: 1px; }
+.speed-group { width: 248px; flex-shrink: 0; padding: 0 2px; }
+.speed-heading { display: flex; justify-content: space-between; align-items: center; padding: 0 22px; }
+.speed-heading label { color: #636f5d; font-size: 10px; letter-spacing: 1px; }
+#speed-value { font-size: 11px; font-variant-numeric: tabular-nums; font-weight: 600; color: #526851; }
+.speed-track { display: flex; align-items: center; gap: 11px; min-height: 31px; }
+.speed-track > span { font-size: 9px; color: #9b9c8b; }
+#speed { appearance: none; -webkit-appearance: none; display: block; width: 100%; min-width: 0; height: 28px; margin: 0; background: transparent; cursor: pointer; accent-color: #658163; }
+#speed::-webkit-slider-runnable-track { height: 3px; background: linear-gradient(to right, #819771 0% var(--progress, 33.333%), #dfe3d3 var(--progress, 33.333%) 100%); border-radius: 9px; }
+#speed::-moz-range-track { height: 3px; background: #dfe3d3; border-radius: 9px; }
+#speed::-moz-range-progress { height: 3px; background: #819771; }
+#speed::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5px; background: #638360; border: 3px solid #fcfbf6; border-radius: 50%; box-shadow: 0 0 0 1px #92a285; }
+#speed::-moz-range-thumb { width: 8px; height: 8px; background: #638360; border: 3px solid #fcfbf6; border-radius: 50%; box-shadow: 0 0 0 1px #92a285; }
+.controls-note { display: flex; align-items: center; justify-content: flex-end; gap: 11px; flex: 1; color: #859079; font-size: 10px; letter-spacing: .5px; white-space: nowrap; }
+.controls-note svg { width: 35px; height: 25px; fill: none; stroke: #879b7d; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.page-footer { display: flex; justify-content: space-between; gap: 18px; padding: 24px 2px 29px; color: #8d9180; font-size: 10px; letter-spacing: 1px; }
+.footer-signature { color: #818c78; font-size: 8px; letter-spacing: 1.7px; }
+.footer-signature > span { font-size: 14px; margin-left: 6px; }
+.noscript-note { padding: 0 25px 20px; color: #687466; font-size: 12px; }
+
+@media (min-width: 1500px) {
+  .introduction { padding-top: 43px; padding-bottom: 36px; }
+}
+
+@media (max-width: 1020px) {
+  .page-shell { width: calc(100% - 64px); }
+  .masthead { min-height: 90px; }
+  .introduction { padding-top: 28px; padding-bottom: 26px; }
+  .intro-aside { gap: 12px; }
+  .intro-aside p { font-size: 10px; }
+  .wind-drawing { width: 36px; }
+  .ride-controls { padding: 20px 24px; gap: 24px; }
+  .controls-note { display: none; }
+  .speed-group { width: 234px; }
+  .scene-caption { top: 23px; left: 24px; }
+  .weather-tag { top: 27px; right: 24px; }
+}
+
+@media (max-width: 640px) {
+  .page-shell { width: calc(100% - 36px); }
+  .masthead { min-height: 84px; gap: 10px; }
+  .brand { gap: 9px; }
+  .brand-mark { width: 36px; height: 36px; }
+  .brand-copy { gap: 5px; }
+  .brand-copy strong { font-size: 12px; letter-spacing: 1px; }
+  .brand-copy > span { font-size: 6px; letter-spacing: 1.1px; }
+  .masthead-note { font-size: 0; gap: 0; }
+  .little-star { width: 22px; height: 22px; }
+  .introduction { display: block; padding: 30px 3px 25px; }
+  .eyebrow { font-size: 7px; letter-spacing: 1.8px; margin-bottom: 14px; }
+  h1 { font-size: clamp(39px, 10.3vw, 60px); line-height: 1.2; letter-spacing: 0; }
+  h1 br { display: block; }
+  .intro-aside { align-items: center; justify-content: space-between; padding: 17px 0 0; }
+  .intro-aside p { font-size: 10px; line-height: 1.9; letter-spacing: .3px; }
+  .wind-drawing { width: 43px; order: 1; margin-right: 8px; }
+  .ride-card { border-radius: 13px; }
+  .scene-wrap { padding-top: 34px; padding-bottom: 27px; background: #fcf6e6; }
+  #scene { position: relative; }
+  .scene-caption { top: 12px; left: 15px; gap: 7px; }
+  .route-number { font-size: 12px; width: 24px; height: 28px; }
+  .scene-caption > div { gap: 3px; }
+  .scene-caption strong { font-size: 8px; letter-spacing: 1px; }
+  .scene-caption div > span { font-size: 5px; letter-spacing: 1px; }
+  .weather-tag { top: 19px; right: 14px; gap: 5px; font-size: 7px; }
+  .weather-tag svg { width: 13px; height: 13px; }
+  .scene-footnote { left: 15px; bottom: 12px; font-size: 7px; gap: 6px; letter-spacing: .4px; }
+  .scene-footnote > span { width: 4px; height: 4px; }
+  .scene-edition { display: none; }
+  .ride-controls { padding: 17px 16px; gap: 18px; flex-wrap: wrap; min-height: 94px; }
+  .playback-group { gap: 10px; flex: 1 1 auto; }
+  .play-button { width: 44px; height: 44px; }
+  .playback-copy { gap: 6px; }
+  .playback-copy strong { font-size: 10px; letter-spacing: .3px; }
+  .playback-copy > span { font-size: 8px; letter-spacing: 0; }
+  .speed-group { width: 108px; }
+  .speed-heading { padding: 0 14px; }
+  .speed-heading label { font-size: 8px; letter-spacing: 0; }
+  #speed-value { font-size: 9px; }
+  .speed-track { gap: 6px; }
+  .speed-track > span { font-size: 7px; }
+  .page-footer { padding: 21px 3px 28px; align-items: center; font-size: 8px; gap: 12px; letter-spacing: .3px; }
+  .footer-signature { font-size: 5px; letter-spacing: .8px; }
+  .footer-signature > span { font-size: 11px; margin-left: 2px; }
+}
+
+@media (max-width: 360px) {
+  .page-shell { width: calc(100% - 28px); }
+  .ride-controls { gap: 13px; padding: 16px 12px; }
+  .speed-group { width: 94px; }
+  .playback-copy > span { font-size: 7px; }
+  .footer-signature { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .play-button { transition: none; }
+}
